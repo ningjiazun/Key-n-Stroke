@@ -1,3 +1,9 @@
+# Key'n'Stroke 简体中文版
+
+非常感谢Phaiax开发这个软件，使我尝试的多个同类软件中最出色，比很多收费的软件也要优秀很多很多。
+我制作了1.0.1的简体中文版，并且修复了按键历史窗口遮挡任务栏右侧通知区域的问题。
+
+
 # Key'n'Stroke
 
 Displays Keystrokes in an overlay window and visualize mouse clicks.
