@@ -52,7 +52,7 @@
                 Panel.ZIndex="8"
                 Click="ButtonSettings_Click" />
         <Button x:Name="buttonLeaveSettingsMode"
-                Content="Finish Move+Resize"
+                Content="完成调整大小和移动"
                 HorizontalAlignment="Right"
                 Margin="0,-2,140,0"
                 VerticalAlignment="Top"
@@ -71,9 +71,9 @@
                 Panel.ZIndex="8"
                 Click="ButtonLeavePasswordMode_Click" Foreground="White" Background="#FFC3AA58">
             <TextBlock HorizontalAlignment="Left" TextAlignment="Center">
-                Password Protection Mode Enabled
+                密码保护模式已启用
                 <LineBreak/>
-                <Span FontSize="12">To continue normally, click here or press<LineBreak/>
+                <Span FontSize="12">要恢复正常模式，请单击此处或下快捷键<LineBreak/>
                 <Run x:Name="PasswordProtectionModeShortcut" Text=""/>
                 </Span>
             </TextBlock>

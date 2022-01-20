@@ -153,7 +153,7 @@ namespace KeyNStroke
 
         private void Hyperlink_ChangeResizeMoveShortcut(object sender, RoutedEventArgs e)
         {
-            ReadShortcut rs = new ReadShortcut(k, "enabling and disabling the move+resize mode for the keystroke history window.");
+            ReadShortcut rs = new ReadShortcut(k, "开关[调整大小和移动模式]的快捷键");
             rs.ShowDialog();
             if (rs.Shortcut != null)
             {
@@ -173,7 +173,7 @@ namespace KeyNStroke
 
         private void Hyperlink_ChangePasswordModeShortcut(object sender, RoutedEventArgs e)
         {
-            ReadShortcut rs = new ReadShortcut(k, " toggling password protection mode.");
+            ReadShortcut rs = new ReadShortcut(k, "开关[密码保护模式]的快捷键");
             rs.ShowDialog();
             if (rs.Shortcut != null)
             {
@@ -217,7 +217,7 @@ namespace KeyNStroke
         {
             using (System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog())
             {
-                dlg.Description = "Select folder with custom icons";
+                dlg.Description = "选择带有自定义图标的文件夹";
                 dlg.SelectedPath = settings.ButtonIndicatorCustomIconsFolder;
                 dlg.ShowNewFolderButton = true;
                 System.Windows.Forms.DialogResult result = dlg.ShowDialog();
@@ -232,7 +232,7 @@ namespace KeyNStroke
         {
             using (System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog())
             {
-                dlg.Description = "Select folder for export";
+                dlg.Description = "选择导出的文件夹";
                 // dlg.SelectedPath = settings.ButtonIndicatorCustomIconsFolder;
                 dlg.ShowNewFolderButton = true;
                 System.Windows.Forms.DialogResult result = dlg.ShowDialog();

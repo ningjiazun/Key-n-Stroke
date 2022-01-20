@@ -8,7 +8,7 @@
         xmlns:fontcolorpicker="clr-namespace:WpfColorFontDialog;assembly=WpfColorFontDialog"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Settings"
+        Title="设置"
         Height="auto"
         Width="900"
         SizeToContent="Height"
@@ -48,7 +48,7 @@
             <ColumnDefinition Width="100*" />
             <ColumnDefinition Width="100*" />
         </Grid.ColumnDefinitions>
-        <GroupBox Header="Keystroke History"
+        <GroupBox Header="按键历史"
                   Grid.Column="0"
                   Grid.ColumnSpan="2"
                   Margin="5">
@@ -60,15 +60,15 @@
                 <StackPanel Grid.Column="0"
                             Margin="5">
                     <CheckBox x:Name="cb_enableKeystrokeDisplay"
-                              IsChecked="{Binding EnableKeystrokeHistory}">Show Keystroke History</CheckBox>
+                              IsChecked="{Binding EnableKeystrokeHistory}">显示按键历史</CheckBox>
 
                     <StackPanel Margin="0,0,0,5">
                         <Button x:Name="button_textfont"
                                 Click="OnButtonTextFontClick"
                                 Grid.ColumnSpan="3"
-                                Margin="10">Font</Button>
+                                Margin="10">字体</Button>
                         <StackPanel Orientation="Horizontal">
-                            <Label VerticalAlignment="Center">Text Color</Label>
+                            <Label VerticalAlignment="Center">文本颜色</Label>
                             <xctk:ColorPicker x:Name="colorpicker_text_color"
                                               ColorMode="ColorCanvas"
                                               Margin="10,0,0,0"
@@ -77,7 +77,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal"
                                     Margin="0,3,0,0">
-                            <Label VerticalAlignment="Center">Background Color</Label>
+                            <Label VerticalAlignment="Center">背景颜色</Label>
                             <xctk:ColorPicker x:Name="colorpicker_background_color"
                                               ColorMode="ColorCanvas"
                                               Margin="10,0,0,0"
@@ -85,14 +85,14 @@
                                               SelectedColor="{Binding BackgroundColor, Mode=TwoWay, Converter={StaticResource MediaColorDrawingColorConverter}}" />
                         </StackPanel>
                         <TextBlock TextWrapping="Wrap"
-                                   Margin="5,3,0,0">Set the window opacity via the "A" channel of the background color.</TextBlock>
+                                   Margin="5,3,0,0">通过“A”通道的背景颜色的设置窗口透明度。</TextBlock>
                         <uc:LabeledSlider x:Name="slider_vertdist"
-                                          Title="Line Distance"
+                                          Title="行间距"
                                           Minimum="10.0"
                                           Maximum="100.0"
                                           Value="{Binding LineDistance, Mode=TwoWay}" />
                         <StackPanel Orientation="Horizontal">
-                            <Label>No of lines in history</Label>
+                            <Label>按键历史显示行数</Label>
                             <xctk:IntegerUpDown x:Name="slider_historycount"
                                                 Minimum="1"
                                                 Maximum="50"
@@ -104,9 +104,9 @@
                             <CheckBox x:Name="cb_enableHistoryTimeout"
                                       IsChecked="{Binding EnableHistoryTimeout}">
                                 <TextBlock>
-                                Lines disappear after
-                                <TextBlock Margin="3,0,0,0"
-                                           Text="{Binding ElementName=slider_history_timeout, Path=Value, Mode=OneWay, StringFormat=N1}" />s
+                                当前行
+                                <TextBlock
+                                           Text="{Binding ElementName=slider_history_timeout, Path=Value, Mode=OneWay, StringFormat=N1}" />  秒后消失
                             </TextBlock>
                             </CheckBox>
                         </WrapPanel>
@@ -119,86 +119,86 @@
                                           HalfWay="0.08"
                                           Value="{Binding HistoryTimeout, Mode=TwoWay}" />
                         <CheckBox x:Name="cb_hideWindow"
-                                  IsChecked="{Binding EnableWindowFade}">Hide window when empty</CheckBox>
+                                  IsChecked="{Binding EnableWindowFade}">空闲时隐藏窗口</CheckBox>
                         <CheckBox x:Name="cb_backspace"
-                                  IsChecked="{Binding BackspaceDeletesText}">Backspace can delete text</CheckBox>
+                                  IsChecked="{Binding BackspaceDeletesText}">退格键可以删除文本</CheckBox>
                         <CheckBox x:Name="cb_periodictopmost"
-                                  IsChecked="{Binding PeriodicTopmost}">Put on top periodically</CheckBox>
+                                  IsChecked="{Binding PeriodicTopmost}">窗口始终显示在最上</CheckBox>
 
                     </StackPanel>
 
                 </StackPanel>
                 <StackPanel Margin="5"
                             Grid.Column="1">
-                    <GroupBox Header="Alignment">
+                    <GroupBox Header="对齐">
                         <StackPanel Margin="0,0,5,0">
                             <RadioButton x:Name="rb_align_left"
-                                         Content="left"
+                                         Content="左侧"
                                          GroupName="align"
                                          IsChecked="{Binding LabelTextAlignment, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:TextAlignment.Left}}" />
                             <RadioButton x:Name="rb_align_center"
-                                         Content="center"
+                                         Content="中间"
                                          GroupName="align"
                                          HorizontalAlignment="Center"
                                          IsChecked="{Binding LabelTextAlignment, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:TextAlignment.Center}}" />
                             <RadioButton x:Name="rb_align_right"
-                                         Content="right"
+                                         Content="右侧"
                                          GroupName="align"
                                          HorizontalAlignment="Right"
                                          IsChecked="{Binding LabelTextAlignment, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:TextAlignment.Right}}" />
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Header="Move Direction">
+                    <GroupBox Header="移动方向">
                         <StackPanel>
                             <RadioButton x:Name="rb_td_up"
-                                         Content="up"
+                                         Content="向上"
                                          GroupName="td"
                                          IsChecked="{Binding LabelTextDirection, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:TextDirection.Up}}" />
                             <RadioButton x:Name="rb_td_down"
-                                         Content="down"
+                                         Content="向下"
                                          GroupName="td"
                                          IsChecked="{Binding LabelTextDirection, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:TextDirection.Down}}" />
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Header="Animation">
+                    <GroupBox Header="动画效果">
                         <StackPanel>
                             <RadioButton x:Name="rb_style_noani"
-                                         Content="no animation"
+                                         Content="无动画效果"
                                          GroupName="style"
                                          IsChecked="{Binding LabelAnimation, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:Style.NoAnimation}}" />
                             <RadioButton x:Name="rb_style_slide"
-                                         Content="slide"
+                                         Content="滑行"
                                          GroupName="style"
                                          IsChecked="{Binding LabelAnimation, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:Style.Slide}}" />
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Header="Keyboard Shortcuts">
+                    <GroupBox Header="键盘快捷键">
                         <StackPanel>
                             <TextBlock TextWrapping="Wrap"
                                        Margin="5,3,0,0">
-                                Resize/move mode 
+                                调整大小和移动模式 
                             </TextBlock>
                             <TextBlock TextWrapping="Wrap"
                                        Margin="15,3,0,0">
                                 <Run Text="{Binding KeystrokeHistorySettingsModeShortcut}" />
                                 <LineBreak />
-                                <Hyperlink Click="Hyperlink_ChangeResizeMoveShortcut">Change</Hyperlink>&#160;&#160;&#160;&#160;&#160;&#160;
-                                <Hyperlink Click="Hyperlink_TriggerResizeMoveShortcut">Trigger</Hyperlink>
+                                <Hyperlink Click="Hyperlink_ChangeResizeMoveShortcut">更改快捷键</Hyperlink>&#160;&#160;&#160;&#160;&#160;&#160;
+                                <Hyperlink Click="Hyperlink_TriggerResizeMoveShortcut">开/关</Hyperlink>
                                 <LineBreak />
-                                <Hyperlink Click="Hyperlink_ResetResizeMoveShortcut">Reset to <Run x:Name="SettingsModeShortcutDefault"></Run></Hyperlink>
+                                <Hyperlink Click="Hyperlink_ResetResizeMoveShortcut">恢复为 <Run x:Name="SettingsModeShortcutDefault"></Run></Hyperlink>
                             </TextBlock>
                             <TextBlock TextWrapping="Wrap"
                                        Margin="5,3,0,0">
-                                Passwort protection mode
+                                密码保护模式
                             </TextBlock>
                             <TextBlock TextWrapping="Wrap"
                                        Margin="15,3,0,0">
                                 <Run Text="{Binding KeystrokeHistoryPasswordModeShortcut}" />
                                 <LineBreak />
-                                <Hyperlink Click="Hyperlink_ChangePasswordModeShortcut">Change</Hyperlink>&#160;&#160;&#160;&#160;&#160;&#160;
-                                <Hyperlink Click="Hyperlink_TriggerPasswordModeShortcut">Trigger</Hyperlink>
+                                <Hyperlink Click="Hyperlink_ChangePasswordModeShortcut">更改快捷键</Hyperlink>&#160;&#160;&#160;&#160;&#160;&#160;
+                                <Hyperlink Click="Hyperlink_TriggerPasswordModeShortcut">开/关</Hyperlink>
                                 <LineBreak />
-                                <Hyperlink Click="Hyperlink_ResetPasswordModeShortcut">Reset to <Run x:Name="PasswordModeShortcutDefault"></Run></Hyperlink>
+                                <Hyperlink Click="Hyperlink_ResetPasswordModeShortcut">恢复为 <Run x:Name="PasswordModeShortcutDefault"></Run></Hyperlink>
                             </TextBlock>
                         </StackPanel>
                     </GroupBox>
@@ -209,22 +209,22 @@
         </GroupBox>
         <StackPanel Grid.Column="2"
                     Margin="5">
-            <GroupBox Header="Cursor">
+            <GroupBox Header="光标指示">
                 <StackPanel>
                     <CheckBox x:Name="cb_cursorindicator"
-                              IsChecked="{Binding EnableCursorIndicator}">Indicate cursor position</CheckBox>
+                              IsChecked="{Binding EnableCursorIndicator}">启用光标位置指示</CheckBox>
                     <uc:LabeledSlider x:Name="slider_ci_opacity"
-                                      Title="Opacity"
+                                      Title="透明度"
                                       Minimum="0.1"
                                       Maximum="1"
                                       Value="{Binding CursorIndicatorOpacity, Mode=TwoWay}" />
                     <uc:LabeledSlider x:Name="slider_ci_size"
-                                      Title="Size"
+                                      Title="大小"
                                       Minimum="3.0"
                                       Maximum="300.0"
                                       Value="{Binding CursorIndicatorSize, Mode=TwoWay}" />
                     <StackPanel Orientation="Horizontal">
-                        <Label VerticalAlignment="Center">Color</Label>
+                        <Label VerticalAlignment="Center">颜色</Label>
                         <xctk:ColorPicker x:Name="colorpicker_ci_color"
                                           ColorMode="ColorCanvas"
                                           Margin="10,0,0,0"
@@ -236,50 +236,50 @@
         </StackPanel>
         <StackPanel Grid.Column="3"
                     Margin="5">
-            <GroupBox Header="Mouse Clicks">
+            <GroupBox Header="鼠标点击指示">
                 <StackPanel Margin="0,0,0,5">
                     <RadioButton x:Name="rb_bi_disable"
-                                 Content="Do not indicate clicks"
+                                 Content="不指示点击动作"
                                  GroupName="bi"
                                  IsChecked="{Binding ButtonIndicator, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:ButtonIndicatorType.Disabled}}" />
                     <RadioButton x:Name="rb_bi_icon"
-                                 Content="Show icon on click"
+                                 Content="用图标指示点击动作"
                                  GroupName="bi"
                                  IsChecked="{Binding ButtonIndicator, Converter={StaticResource EnumBooleanConverter}, ConverterParameter={x:Static uc:ButtonIndicatorType.PicsAroundCursor}}" />
                     <uc:LabeledSlider x:Name="slider_bi_size"
-                                      Title="Size"
+                                      Title="大小"
                                       Minimum="0.1"
                                       Maximum="2"
                                       Value="{Binding ButtonIndicatorScaling, Mode=TwoWay}" />
                     <uc:LabeledSlider x:Name="slider_bi_distance"
-                                      Title="Distance"
+                                      Title="距离"
                                       Minimum="10"
                                       Maximum="100"
                                       Value="{Binding ButtonIndicatorPositionDistance, Mode=TwoWay}" />
                     <uc:LabeledSlider x:Name="slider_bi_angle"
-                                      Title="Direction"
+                                      Title="方向"
                                       Maximum="65"
                                       Value="{Binding ButtonIndicatorPositionAngle, Mode=TwoWay}" />
                     <CheckBox x:Name="cb_bi_modifiers"
-                              IsChecked="{Binding ButtonIndicatorShowModifiers}">Show modifiers (Ctrl, Shift, ...)</CheckBox>
+                              IsChecked="{Binding ButtonIndicatorShowModifiers}">显示功能键(Ctrl,Shift,Alt,Win)</CheckBox>
                     <CheckBox x:Name="cb_bi_customicons"
                               IsChecked="{Binding ButtonIndicatorUseCustomIcons}">
-                        <TextBlock>Use custom icons. <Hyperlink Click="OnClickCustomIconsHelp">Help</Hyperlink></TextBlock></CheckBox>
+                        <TextBlock>使用自定义图标  <Hyperlink Click="OnClickCustomIconsHelp">帮助</Hyperlink></TextBlock></CheckBox>
                     <Button x:Name="button_bi_export_builtin"
                                 Click="OnButtonExportBuiltinIcons"
-                                Margin="15,5,5,5">Export built-in icons</Button>
+                                Margin="15,5,5,5">导出内置图标</Button>
                     <Button x:Name="button_bi_select_folder"
                                 Click="OnButtonCustomIconsSelectFolder"
-                                Margin="15,0,5,5">Select Folder with custom icons</Button>
+                                Margin="15,0,5,5">选择自定义图标文件夹</Button>
                     <TextBlock x:Name="textblockCustomIconInfoBuiltin" Margin="15,0,5,5" TextWrapping="Wrap">
-                        Currently using built-in icons.
+                        当前使用内置图标。
                     </TextBlock>
                     <TextBlock x:Name="textblockCustomIconInfoCustom" Margin="15,0,5,5" TextWrapping="Wrap">
-                            Currently using icons from
+                            当前使用图标来自目录：
                             <LineBreak/>
                             <Run x:Name="runCustomIconFolderInfo" Text="{Binding ButtonIndicatorCustomIconsFolder}"/>
                             <LineBreak/>
-                            <Hyperlink Click="OnClickCustomIconsRefresh">Refresh cache</Hyperlink>
+                            <Hyperlink Click="OnClickCustomIconsRefresh">刷新缓存</Hyperlink>
                     </TextBlock>
                 </StackPanel>
             </GroupBox>
@@ -294,10 +294,10 @@
                         Grid.ColumnSpan="2"
                         Margin="0,5,9.667,0"
                         VerticalAlignment="Top"
-                        Click="Bn_reset_position_Click">Reset position</Button>
+                        Click="Bn_reset_position_Click">恢复窗口位置</Button>
                 <Button x:Name="bn_reset_all"
                         Grid.Column="2"
-                        Click="bn_reset_all_Click">Reset all</Button>
+                        Click="bn_reset_all_Click">恢复所有设置</Button>
             </Grid>
         </StackPanel>
 
@@ -306,12 +306,12 @@
                 Grid.Row="1"
                 VerticalAlignment="Bottom"
                 Margin="10,0,10,10"
-                Click="button_exit_Click">Exit Application</Button>
+                Click="button_exit_Click">退出程序</Button>
         <Button x:Name="button_close"
                 Grid.Column="3"
                 Grid.Row="1"
                 VerticalAlignment="Bottom"
                 Margin="10,0,10,10"
-                Click="Button_close_Click">Close Settings</Button>
+                Click="Button_close_Click">完成设置</Button>
     </Grid>
 </Window>

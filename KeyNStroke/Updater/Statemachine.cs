@@ -89,17 +89,17 @@ namespace KeyNStroke.Updater
             }
         }
 
-        const String UI_CHECK_FOR_UPDATES = "Check for updates";
-        const String UI_NO_UPDATE_AVAILABLE = "No update available";
-        const String UI_CHECKING_FOR_UPDATES = "Checking for updates...";
-        const String UI_MANIFEST_DOWNLOAD_FAILED = "Manifest download failed.";
-        const String UI_MANIFEST_VERIFICATION_FAILED = "Manifest verification failed.";
-        const String UI_DO_UPDATE_TO_VERSION = "Update to version";
-        const String UI_WHATS_NEW_IN_VERSION = "What's new in version";
-        const String UI_UPDATE_DOWNLOAD_IN_PROGRESS = "Dowloading...";
-        const String UI_UPDATE_DOWNLOAD_FAILED = "Update download failed.";
-        const String UI_UPDATE_VERIFICATION_FAILED = "Update verification failed.";
-        const String UI_UPDATE_IMPENDING = "Installing... The application will restart in a few moments.";
+        const String UI_CHECK_FOR_UPDATES = "检查更新";
+        const String UI_NO_UPDATE_AVAILABLE = "没有可用更新";
+        const String UI_CHECKING_FOR_UPDATES = "正在检查更新...";
+        const String UI_MANIFEST_DOWNLOAD_FAILED = "Manifest 下载失败。";
+        const String UI_MANIFEST_VERIFICATION_FAILED = "Manifest 验证失败。";
+        const String UI_DO_UPDATE_TO_VERSION = "更新到版本";
+        const String UI_WHATS_NEW_IN_VERSION = "版本新功能";
+        const String UI_UPDATE_DOWNLOAD_IN_PROGRESS = "正在下载...";
+        const String UI_UPDATE_DOWNLOAD_FAILED = "下载更新失败。";
+        const String UI_UPDATE_VERIFICATION_FAILED = "更新验证失败。";
+        const String UI_UPDATE_IMPENDING = "正在安装... 应用程序稍后将重新启动。";
 
         /// <summary>
         /// Trigger the UiUpdateEventHandler event. This should be called after a new window connected its UI to the updater.

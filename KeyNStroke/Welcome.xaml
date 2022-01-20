@@ -5,20 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KeyNStroke"
         mc:Ignorable="d"
-        Title="Welcome" Height="440.617" Width="741.54" Icon="Resources/app.ico" WindowStartupLocation="CenterScreen">
+        Title="欢迎" Height="440.617" Width="741.54" Icon="Resources/app.ico" WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" x:Name="layout_root">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="689*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Margin="10,10,-0.333,163.333" TextWrapping="Wrap"><Span FontSize="24"><Run Text="Welcome to Key'n'Strokes "/><Run x:Name="VersionInfo"/></Span><LineBreak/><Span FontSize="24"><Run/></Span><LineBreak/><LineBreak/><Run Text="Click "/><InlineUIContainer>
+        <TextBlock Margin="10,10,0,163" TextWrapping="Wrap" Grid.ColumnSpan="2"><Span FontSize="24"><Run Text="欢迎使用 Key'n'Strokes "/><Run x:Name="VersionInfo"/></Span><LineBreak/><Span FontSize="24"><Run/></Span><LineBreak/><LineBreak/><Run Text="点击任务栏右侧通知区域的图标 "/><InlineUIContainer>
                 <Image Width="20" Source="Resources/app.ico" />
-            </InlineUIContainer><Run Text=" in the notification area to access the "/><Hyperlink RequestNavigate="Hyperlink_RequestNavigate_settings" NavigateUri="none://dummy" >settings</Hyperlink>.<LineBreak/><LineBreak/><Run Text="Press "/><Span FontWeight="Bold"><Run Text="{Binding KeystrokeHistorySettingsModeShortcut, Mode=OneWay}"/></Span><Run Text=" to move the keystroke history window."/></TextBlock>
-        <Button x:Name="ButtonCheckForUpdates" Content="Check for Updates" HorizontalAlignment="Left" Margin="10,0,0,10.333" VerticalAlignment="Bottom" Width="129" Height="24" />
-        <TextBlock Margin="10,299,-0.333,52.333" TextWrapping="Wrap">
-            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate_README" NavigateUri="none://dummy" >Documentation</Hyperlink>
+            </InlineUIContainer><Run Text="，打开 "/><Hyperlink RequestNavigate="Hyperlink_RequestNavigate_settings" NavigateUri="none://dummy" >设置</Hyperlink><Run Text=" 窗口。"/><LineBreak/><LineBreak/><Run Text="按下 "/><Span FontWeight="Bold"><Run Text="{Binding KeystrokeHistorySettingsModeShortcut, Mode=OneWay}"/></Span><Run Text=" 后可以移动或者调整按键记录窗口的大小。"/></TextBlock>
+        <Button x:Name="ButtonCheckForUpdates" Content="检查更新" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="129" Height="24" Grid.ColumnSpan="2" />
+        <TextBlock Margin="10,259,0,52" TextWrapping="Wrap" Grid.ColumnSpan="2">
+            <Run Text="简体中文版制作：宁甲尊 "/>
             <LineBreak />
-            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate_Issues" NavigateUri="none://dummy" >Report Bugs in GitHub</Hyperlink>
+            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate_README" NavigateUri="none://dummy" >官方文档</Hyperlink>
+            <LineBreak />
+            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate_Issues" NavigateUri="none://dummy" >在GitHub网站上报告错误</Hyperlink>
         </TextBlock>
-        <Button x:Name="ButtonExitApplication" Content="Exit Application" Margin="0,0,165.667,10.333" Click="ButtonExitApplication_Click" HorizontalAlignment="Right" Width="129" Height="24" VerticalAlignment="Bottom"/>
-        <Button x:Name="ButtonHideThisWindow" Content="Let's go" Margin="0,0,9.667,10.333" Click="ButtonHideThisWindow_Click" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="129"/>
-        <TextBlock x:Name="TextUpdateStatus" HorizontalAlignment="Left" Margin="152,0,0,13.333" VerticalAlignment="Bottom" Width="227"/>
+        <Button x:Name="ButtonExitApplication" Content="退出程序" Margin="0,0,166,10" Click="ButtonExitApplication_Click" HorizontalAlignment="Right" Width="129" Height="24" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <Button x:Name="ButtonHideThisWindow" Content="开始使用" Margin="0,0,10,10" Click="ButtonHideThisWindow_Click" Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="129" Grid.Column="1"/>
+        <TextBlock x:Name="TextUpdateStatus" HorizontalAlignment="Left" Margin="120,0,0,13" VerticalAlignment="Bottom" Width="227" Grid.Column="1"/>
     </Grid>
 </Window>
